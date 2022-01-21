@@ -1,0 +1,61 @@
+{
+	"status": {
+		"timestamp": "2022-01-20T22:12:24.015Z",
+		"error_code": 0,
+		"error_message": null,
+		"elapsed": 16,
+		"credit_count": 1,
+		"notice": null
+	},
+	"data": {
+		"active_cryptocurrencies": 9235,
+		"total_cryptocurrencies": 17002,
+		"active_market_pairs": 52874,
+		"active_exchanges": 452,
+		"total_exchanges": 1580,
+		"eth_dominance": 18.930655855683,
+		"btc_dominance": 40.257806146828,
+		"eth_dominance_yesterday": 18.85987137,
+		"btc_dominance_yesterday": 40.1854749,
+		"eth_dominance_24h_percentage_change": 0.070784485683,
+		"btc_dominance_24h_percentage_change": 0.072331246828,
+		"defi_volume_24h": 7234495831.246111,
+		"defi_volume_24h_reported": 20493018497.376617,
+		"defi_market_cap": 138127961040.66116,
+		"defi_24h_percentage_change": -37.638533375054,
+		"stablecoin_volume_24h": 40984473546.61142,
+		"stablecoin_volume_24h_reported": 128761462669.80795,
+		"stablecoin_market_cap": 163811509951.34518,
+		"stablecoin_24h_percentage_change": -30.818205439566,
+		"derivatives_volume_24h": 124946128167.3736,
+		"derivatives_volume_24h_reported": 124946128167.3736,
+		"derivatives_24h_percentage_change": -12.338839346069,
+		"quote": {
+			"USD": {
+				"total_market_cap": 1949159593898.2747,
+				"total_volume_24h": 54549913715.06,
+				"total_volume_24h_reported": 168758347642.35,
+				"altcoin_volume_24h": 35981676449.273346,
+				"altcoin_volume_24h_reported": 86127604205.84009,
+				"altcoin_market_cap": 1164470703094.4014,
+				"defi_volume_24h": 7234495831.246111,
+				"defi_volume_24h_reported": 20493018497.376617,
+				"defi_24h_percentage_change": -37.638533375054,
+				"defi_market_cap": 138127961040.66116,
+				"stablecoin_volume_24h": 40984473546.61142,
+				"stablecoin_volume_24h_reported": 128761462669.80795,
+				"stablecoin_24h_percentage_change": -30.818205439566,
+				"stablecoin_market_cap": 163811509951.34518,
+				"derivatives_volume_24h": 124946128167.3736,
+				"derivatives_volume_24h_reported": 124946128167.3736,
+				"derivatives_24h_percentage_change": -12.338839346069,
+				"last_updated": "2022-01-20T22:10:59.999Z",
+				"total_market_cap_yesterday": 1966519195950.1235,
+				"total_volume_24h_yesterday": 75473759856.32,
+				"total_market_cap_yesterday_percentage_change": -0.8827578234476192,
+				"total_volume_24h_yesterday_percentage_change": -27.7233387883324
+			}
+		},
+		"last_updated": "2022-01-20T22:10:59.999Z"
+	}
+}
