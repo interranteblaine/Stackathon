@@ -1,35 +1,55 @@
-import React from 'react'
-import { useSelector, useDispatch } from 'react-redux'
-import {Link} from 'react-router-dom'
-import {logout} from '../store'
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import { fetchAggregateData } from "../store/navbar";
+import { floatToDollars, formatPercent, timeStampToDate } from "../utility";
 
-const Navbar = () =>  {
-  const isLoggedIn = useSelector(state => !!state.auth.id)
-  const dispatch = useDispatch()
+const Navbar = () => {
+  const dispatch = useDispatch();
+  const {
+    aggregate: {
+      last_updated,
+      total_market_cap,
+      total_market_cap_yesterday_percentage_change,
+    },
+  } = useSelector((state) => state);
+
+  useEffect(() => {
+    dispatch(fetchAggregateData());
+  }, []);
 
   return (
     <div>
-      <h1>FS-App-Template</h1>
+      {!last_updated ? (
+        <div>
+          <p>Last Updated: loading...</p>
+          <p>Market Cap: loading...</p>
+          <p>24h %: loading...</p>
+        </div>
+      ) : (
+        <div>
+          <p>Last Updated:{" "}
+            {timeStampToDate(last_updated)}
+          </p>
+          <p>
+            Market Cap:{" "}
+            {floatToDollars(total_market_cap)}
+          </p>
+          <p>
+            24h %:{" "}
+            {formatPercent(total_market_cap_yesterday_percentage_change)}
+          </p>
+        </div>
+      )}
+      <h1>Crypto-Data</h1>
       <nav>
-        {isLoggedIn ? (
-          <div>
-            {/* The navbar will show these links after you log in */}
-            <Link to="/home">Home</Link>
-            <a href="#" onClick={ () => dispatch(logout()) }>
-              Logout
-            </a>
-          </div>
-        ) : (
-          <div>
-            {/* The navbar will show these links before you log in */}
-            <Link to="/login">Login</Link>
-            <Link to="/signup">Sign Up</Link>
-          </div>
-        )}
+        <div>
+          <Link to="/home">Home</Link>
+        </div>
       </nav>
       <hr />
     </div>
-    )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;
