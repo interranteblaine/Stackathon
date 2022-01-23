@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { fetchMarketData } from "../store/home";
 import { floatToDollars, formatPercent, formatBigFloat } from "../utility";
+import Price from "./Price";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -62,8 +63,8 @@ const Home = () => {
             data.content.map((d) => (
               <tr key={d.cmc_id}>
                 <td>{d.cmc_rank}</td>
-                <td>{d.name}</td>
-                <td>{floatToDollars(d.price)}</td>
+                <td><Link to={`/details/${d.cmc_id}`}>{d.name}</Link></td>
+                <Price symbol={d.symbol} currency={'USD'} />
                 <td>{formatPercent(d.percent_change_24h)}</td>
                 <td>{formatPercent(d.percent_change_7d)}</td>
                 <td>{floatToDollars(d.market_cap)}</td>

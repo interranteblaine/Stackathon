@@ -28,9 +28,6 @@ const Navbar = () => {
         </div>
       ) : (
         <div>
-          <p>Last Updated:{" "}
-            {timeStampToDate(last_updated)}
-          </p>
           <p>
             Market Cap:{" "}
             {floatToDollars(total_market_cap)}
@@ -38,6 +35,9 @@ const Navbar = () => {
           <p>
             24h %:{" "}
             {formatPercent(total_market_cap_yesterday_percentage_change)}
+          </p>
+          <p>Market Data Last Updated:{" "}
+            {timeStampToDate(last_updated)}
           </p>
         </div>
       )}
