@@ -62,7 +62,10 @@ const Home = () => {
             data.content.map((d) => (
               <tr key={d.cmc_id}>
                 <td>{d.cmc_rank}</td>
-                <td><Link to={`/details/${d.cmc_id}`}>{d.name}</Link></td>
+                <td>
+                  <img src={d.logoUrl} style={{width: "24px", height: "24px"}}/>
+                  <Link to={`/details/${d.cmc_id}`}>{d.name}</Link>
+                </td>
                 <td>{floatToDollars(d.price)}</td>
                 <td>{formatPercent(d.percent_change_24h)}</td>
                 <td>{formatPercent(d.percent_change_7d)}</td>

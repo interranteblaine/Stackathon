@@ -64,6 +64,12 @@ const Market = db.define('market', {
     },
     fully_diluted_market_cap: {
         type: Sequelize.FLOAT
+    },
+    logoUrl: {
+        type: Sequelize.STRING
+    },
+    description: {
+        type: Sequelize.TEXT
     }
 })
 

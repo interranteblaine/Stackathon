@@ -34,6 +34,7 @@ router.get("/", async (req, res, next) => {
         "market_cap",
         "volume_24h",
         "circulating_supply",
+        "logoUrl"
       ],
     });
 
