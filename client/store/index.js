@@ -5,11 +5,13 @@ import {composeWithDevTools} from 'redux-devtools-extension'
 import aggregateReducer from './navbar'
 import marketReducer from './home'
 import detailsReducer from './details'
+import paginationReducer from './pagination'
 
 const reducer = combineReducers({
   market: marketReducer,
   aggregate: aggregateReducer,
-  details: detailsReducer
+  details: detailsReducer,
+  page: paginationReducer
 })
 
 const middleware = composeWithDevTools(

@@ -1,15 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { fetchMarketData } from "../store/home";
 import { floatToDollars, formatPercent, formatBigFloat } from "../utility";
-import Price from "./Price";
+import { setPage } from "../store/pagination"
 
 const Home = () => {
   const dispatch = useDispatch();
-  const [page, setPage] = useState(0);
   const [itemsPerPage, setItemsPerPage] = useState(10);
-  const { market: data } = useSelector((state) => state);
+  const { market: data, page } = useSelector((state) => state);
 
   useEffect(() => {
     dispatch(fetchMarketData(page, itemsPerPage));
@@ -25,17 +24,17 @@ const Home = () => {
                 <p>{`Displaying page ${page + 1} of ${
                   !data.totalPages ? 0 : data.totalPages
                 }`}</p>
-                <button onClick={() => setPage(Math.max(0, page - 1))}>
+                <button onClick={() => dispatch(setPage(Math.max(0, page - 1)))}>
                   Prev
                 </button>
                 <button
                   onClick={() =>
-                    setPage(
+                    dispatch(setPage(
                       Math.min(
                         !data.totalPages ? 0 : data.totalPages - 1,
                         page + 1
                       )
-                    )
+                    ))
                   }
                 >
                   Next
@@ -64,7 +63,7 @@ const Home = () => {
               <tr key={d.cmc_id}>
                 <td>{d.cmc_rank}</td>
                 <td><Link to={`/details/${d.cmc_id}`}>{d.name}</Link></td>
-                <Price symbol={d.symbol} currency={'USD'} />
+                <td>{floatToDollars(d.price)}</td>
                 <td>{formatPercent(d.percent_change_24h)}</td>
                 <td>{formatPercent(d.percent_change_7d)}</td>
                 <td>{floatToDollars(d.market_cap)}</td>
