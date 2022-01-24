@@ -41,7 +41,10 @@ const Navbar = () => {
           </p>
         </div>
       )}
-      <h1>Torch</h1>
+      <div>
+        <img src="/torch.png" alt="torch" id="torch"/>
+        <h1>Torch</h1>
+      </div>
       <nav>
         <div>
           <Link to="/home">Home</Link>

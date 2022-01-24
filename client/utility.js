@@ -1,11 +1,11 @@
 export const floatToDollars = (float) => {
   if (float > 0.01) {
-    return float.toLocaleString("en-US", {
+    return parseFloat(float).toLocaleString("en-US", {
       style: "currency",
       currency: "USD",
     });
   } else {
-    return float.toLocaleString("en-US", {
+    return parseFloat(float).toLocaleString("en-US", {
       minimumFractionDigits: 2,
       maximumFractionDigits: 6,
       style: "currency",
@@ -44,4 +44,9 @@ export const formatHistoricalData = (arr) => {
     });
   }
   return formattedResults;
+}
+
+export const formatDayDate = (dateObj) => {
+  const date = new Date (Date.parse(dateObj));
+  return `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`
 }
