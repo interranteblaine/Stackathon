@@ -15,12 +15,21 @@ const Historical = () => {
   const [high, setHigh] = useState([]);
   const [low, setLow] = useState([]);
 
+  useEffect(() => {
+    setLow(
+      data
+        .filter((e, i) => i <= chartDays)
+        .reduce((a, b) => (a.close <= b.close ? a : b), {})
+    );
+    setHigh(
+      data
+        .filter((e, i) => i <= chartDays)
+        .reduce((a, b) => (a.close >= b.close ? a : b), {})
+    );
+  }, [data, chartDays]);
+
   function handleRadioButtonChange(e) {
     setChartDays(e.target.value);
-    if (data) {
-      setLow(data.filter((e, i) => i <= chartDays).reduce((a, b) => (a.close <= b.close) ? a : b, {}));
-      setHigh(data.filter((e, i) => i <= chartDays).reduce((a, b) => (a.close >= b.close) ? a : b, {}));
-    }
   }
 
   return (
@@ -34,7 +43,8 @@ const Historical = () => {
             <input type="radio" value={30} name="days" /> 30D
             <input type="radio" value={60} name="days" /> 60D
             <input type="radio" value={180} name="days" /> 180D
-            <input type="radio" value={data.length} name="days" /> {`${data.length}D`}
+            <input type="radio" value={data.length} name="days" />{" "}
+            {`${data.length}D`}
           </div>
           <div>
             <p>{`Low: ${low.date} ${low.close}`}</p>
@@ -55,12 +65,8 @@ const Historical = () => {
               x="date"
               y="close"
             />
-            <VictoryAxis
-              crossAxis
-            />
-            <VictoryAxis
-              dependentAxis
-            />
+            <VictoryAxis crossAxis />
+            <VictoryAxis dependentAxis />
           </VictoryChart>
         </div>
       )}
