@@ -6,12 +6,14 @@ import aggregateReducer from './navbar'
 import marketReducer from './home'
 import detailsReducer from './details'
 import paginationReducer from './pagination'
+import historicalReducer from './historical'
 
 const reducer = combineReducers({
   market: marketReducer,
   aggregate: aggregateReducer,
   details: detailsReducer,
-  page: paginationReducer
+  page: paginationReducer,
+  historical: historicalReducer
 })
 
 const middleware = composeWithDevTools(

@@ -29,3 +29,19 @@ export const formatBigFloat = (float) => {
 export const formatLivePrice = (str) => {
   return floatToDollars(parseFloat(str));
 };
+
+export const formatHistoricalData = (arr) => {
+  let formattedResults = [];
+  for (let i = 0; i < arr.length; i++) {
+    let date = new Date(arr[i][0] * 1000); 
+    formattedResults.push({
+      date,
+      low: arr[i][1],
+      high: arr[i][2],
+      open: arr[i][3],
+      close: arr[i][4],
+      volume: arr[i][5]
+    });
+  }
+  return formattedResults;
+}

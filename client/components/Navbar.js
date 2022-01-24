@@ -41,7 +41,7 @@ const Navbar = () => {
           </p>
         </div>
       )}
-      <h1>Crypto-Data</h1>
+      <h1>Torch</h1>
       <nav>
         <div>
           <Link to="/home">Home</Link>
