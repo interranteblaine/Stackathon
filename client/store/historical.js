@@ -13,7 +13,6 @@ export const fetchHistoricalData = (baseQuotePair) => {
       );
       dispatch(setHistoricalData(formatHistoricalData(data)));
     } catch (error) {
-      console.log(error);
       dispatch(setHistoricalData([]));
     }
   };
