@@ -62,7 +62,7 @@ async function refreshData(apiKey) {
             total_market_cap_yesterday_percentage_change: aggregateData.quote.USD.total_market_cap_yesterday_percentage_change
         })
 
-        await db.close();
+        // await db.close();
         
     } catch (error) {
         console.log(error)
