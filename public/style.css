@@ -1,21 +1,277 @@
 body {
   font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #002437;
 }
 
-a {
-  text-decoration: none;
+#app {
+  margin: 0;
 }
 
-label {
-  display: block;
+.header {
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: #485461;
+  background-image: linear-gradient(315deg, #485461 0%, #28313b 74%);
+  color: whitesmoke;
+}
+
+.top-info-bar {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.top-info-bar p {
+  margin: 0.5em;
+}
+
+.top-info-bar small {
+  color: rgb(163, 163, 163);
+}
+
+.logo-name-nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 0.5em 0.5em 0.5em 0.5em;
+}
+
+.logo-name-nav-container img {
+  max-height: 34px;
+  max-width: 34px;
+  margin: 0 0.25em 0.25em 0.25em;
+}
+
+.logo-name-nav-container h1 {
+  margin: 0 1em 0 0;
+}
+
+.logo-name-nav-container nav {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 0.25em 0 0.25em 0;
+  padding-left: 1em;
+  border-left: 2px solid gainsboro;
 }
 
 nav a {
-  display: inline-block;
-  margin: 1em;
+  margin: 0 0.40em 0 0.40em;
+  text-decoration: none;
+  color: rgb(221, 221, 221);
 }
 
-form div {
-  margin: 1em;
-  display: inline-block;
+nav a:hover {
+  opacity: 70%;
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+}
+
+.content-assets {
+  width: 95%;
+  margin-top: 0.2em;
+}
+
+.assets-pagination {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 0.2em;
+}
+
+.assets-pagination button {
+  height: 2em;
+  margin: 0 0.2em 0 0.2em;
+}
+
+.assets-pagination p {
+  margin: 0 1em 0 1em;
+  color: rgb(221, 221, 221);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: rgb(235, 235, 235);
+}
+
+td {
+  text-align: right;
+  border: 1px solid gainsboro;
+  padding: 1em 0.3em 1em 0.3em;
+}
+
+.table-header-row {
+  background-color: #485461;
+  background-image: linear-gradient(315deg, #485461 0%, #28313b 74%);
+}
+
+.table-header-row td{
+  padding: 0.5em 0.3em 0.5em 0.3em;
+  color: whitesmoke;
+  font-size: small;
+}
+
+.text-align-center {
+  text-align: center;
+}
+
+.text-align-left {
+  text-align: left;
+}
+
+.table-name {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.table-name a {
+  text-decoration: none;
+  color: black;
+  margin-left: 0.5em;
+}
+
+.table-name img {
+  width: 24px;
+  height: 24px;
+}
+
+.table-row-hover:hover {
+  background-color: rgb(221, 221, 221);
+}
+
+.details-container {
+  width: 95%;
+  margin-top: 2em;
+}
+
+.details-main {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: auto;
+}
+
+.info-tile {
+  margin: 0.25em;
+  background-color: #485461;
+  background-image: linear-gradient(315deg, #485461 0%, #28313b 74%);
+  color: whitesmoke;
+  border: 0.5px solid rgb(84, 84, 84);
+}
+
+.details-header {
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 0.5em;
+}
+
+.details-header img {
+  height: 84px;
+  width: 84px;
+  margin-right: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+.details-header-title {
+  display: flex;
+  align-items: center;
+}
+
+.details-header-price p {
+  margin-top: 0.5em;
+  margin-bottom: 0;
+  color: rgb(163, 163, 163);
+}
+
+.details-header-price h2 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.details-title {
+  font-weight: bold;
+  color: rgb(221, 221, 221);
+  font-size: small;
+}
+
+.details-price {
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 0.5em;
+}
+
+.details-price p {
+  margin: 0.5em 0 0.5em 0;
+}
+
+.details-price small {
+  color: rgb(163, 163, 163);
+}
+
+.details-info {
+  grid-column: 3 / 4;
+  grid-row: 1 / 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 0.5em;
+}
+
+.details-info p {
+  margin: 0.5em 0 0.5em 0;
+}
+
+.details-info-description {
+  grid-column: 4 / 6;
+  grid-row: 1 / 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 0.5em;
+}
+
+.details-info-description p {
+  margin: 0.5em 1em 0.5em 1em;
+}
+
+.chart-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.chart {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.above-chart {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 85%;
+}
+
+.above-chart small {
+  color: rgb(163, 163, 163);
+}
+
+.above-chart input {
+  color: rgb(163, 163, 163);
 }

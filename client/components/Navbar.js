@@ -19,38 +19,37 @@ const Navbar = () => {
   }, []);
 
   return (
-    <div>
+    <div className="header">
       {!last_updated ? (
-        <div>
-          <p>Last Updated: loading...</p>
-          <p>Market Cap: loading...</p>
-          <p>24h %: loading...</p>
+        <div className="top-info-bar">
+          <p><small>Crypto Market Cap:</small> loading...</p>
+          <p><small>24h %:</small> loading...</p>
+          <p><small>Last Updated:</small> loading...</p>
         </div>
       ) : (
-        <div>
+        <div className="top-info-bar">
           <p>
-            Market Cap:{" "}
+            <small>Crypto Market Cap:</small>{" "}
             {floatToDollars(total_market_cap)}
           </p>
           <p>
-            24h %:{" "}
+            <small>24h %:</small>{" "}
             {formatPercent(total_market_cap_yesterday_percentage_change)}
           </p>
-          <p>Market Data Last Updated:{" "}
+          <p><small>Market Data Last Updated:</small>{" "}
             {timeStampToDate(last_updated)}
           </p>
         </div>
       )}
-      <div>
+      <div className="logo-name-nav-container">
         <img src="/torch.png" alt="torch" id="torch"/>
         <h1>Torch</h1>
+        <nav>
+            <Link to="/home">Assets</Link>
+            <Link to="#">Analysis</Link>
+            <Link to="#">Sandbox</Link>
+        </nav>
       </div>
-      <nav>
-        <div>
-          <Link to="/home">Home</Link>
-        </div>
-      </nav>
-      <hr />
     </div>
   );
 };

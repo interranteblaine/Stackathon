@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { fetchMarketData } from "../store/home";
 import { floatToDollars, formatPercent, formatBigFloat } from "../utility";
-import { setPage } from "../store/pagination"
+import { setPage } from "../store/pagination";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -15,42 +15,39 @@ const Home = () => {
   }, [page]);
 
   return (
-    <div>
+    <div className="content-assets">
+      <div className="assets-pagination">
+        <p>
+          <small>{`Displaying page ${page + 1} of ${
+            !data.totalPages ? 0 : data.totalPages
+          }`}</small>
+        </p>
+        <button onClick={() => dispatch(setPage(Math.max(0, page - 1)))}>
+          Prev
+        </button>
+        <button
+          onClick={() =>
+            dispatch(
+              setPage(
+                Math.min(!data.totalPages ? 0 : data.totalPages - 1, page + 1)
+              )
+            )
+          }
+        >
+          Next
+        </button>
+      </div>
       <table>
         <thead>
-          <tr>
-            <td colSpan={8}>
-              <div>
-                <p>{`Displaying page ${page + 1} of ${
-                  !data.totalPages ? 0 : data.totalPages
-                }`}</p>
-                <button onClick={() => dispatch(setPage(Math.max(0, page - 1)))}>
-                  Prev
-                </button>
-                <button
-                  onClick={() =>
-                    dispatch(setPage(
-                      Math.min(
-                        !data.totalPages ? 0 : data.totalPages - 1,
-                        page + 1
-                      )
-                    ))
-                  }
-                >
-                  Next
-                </button>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>#</td>
-            <td>Name</td>
-            <td>Price</td>
-            <td>24h %</td>
-            <td>7d %</td>
-            <td>Market Cap</td>
-            <td>Volume(24h)</td>
-            <td>Circulating Supply</td>
+          <tr className="table-header-row">
+            <td className="text-align-center">#</td>
+            <td className="text-align-left">NAME</td>
+            <td>PRICE</td>
+            <td>24H %</td>
+            <td>7D %</td>
+            <td>MARKET CAP</td>
+            <td>VOLUME(24H)</td>
+            <td>CIRCULATING SUPPLY</td>
           </tr>
         </thead>
         <tbody>
@@ -60,11 +57,13 @@ const Home = () => {
             </tr>
           ) : (
             data.content.map((d) => (
-              <tr key={d.cmc_id}>
-                <td>{d.cmc_rank}</td>
-                <td>
-                  <img src={d.logoUrl} style={{width: "24px", height: "24px"}}/>
-                  <Link to={`/details/${d.cmc_id}`}>{d.name}</Link>
+              <tr key={d.cmc_id} className="table-row-hover">
+                <td className="text-align-center">{d.cmc_rank}</td>
+                <td className="text-align-left">
+                  <div className="table-name">
+                    <img src={d.logoUrl} />
+                    <Link to={`/details/${d.cmc_id}`}>{d.name}</Link>
+                  </div>
                 </td>
                 <td>{floatToDollars(d.price)}</td>
                 <td>{formatPercent(d.percent_change_24h)}</td>

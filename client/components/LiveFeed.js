@@ -2,7 +2,6 @@ import React, { useEffect, useState, useRef } from "react";
 import { useDispatch } from "react-redux";
 import { fetchHistoricalData } from '../store/historical'
 import axios from "axios";
-import Dashboard from "./Dashboard";
 
 const LiveFeed = (props) => {
   const { symbol } = props;
@@ -72,7 +71,9 @@ const LiveFeed = (props) => {
     };
   }, []);
 
-  return <Dashboard livePrice={price} onCoinbase={onCoinbase} />;
+  return (
+    <p>{price}</p>
+  );
 };
 
 export default LiveFeed;
