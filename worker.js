@@ -1,6 +1,5 @@
 const { db, models: { Market, Aggregate } } = require('./server/db')
 const axios = require('axios')
-const { cmcApiKey } = require('./secret')
 
 async function fetchData(uri, apiKey) {
     try {
@@ -70,4 +69,4 @@ async function refreshData(apiKey) {
     }
 }
 
-refreshData(cmcApiKey)
+module.exports = refreshData
