@@ -1,7 +1,6 @@
 'use strict'
 
 const { db } = require('../server/db')
-const { cmcApiKey } = require('../secret')
 const refreshData = require('../worker')
 
 /**
@@ -13,6 +12,7 @@ async function seed() {
     if (process.env.CMCAPIKEY) {
       await refreshData(process.env.CMCAPIKEY)
     } else {
+      const { cmcApiKey } = require('../secret')
       await refreshData(cmcApiKey)
     }
   } catch (error) {
