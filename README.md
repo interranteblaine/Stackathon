@@ -1,11 +1,3 @@
 # Torch
 
-## Setup
-
-To use this as boilerplate, you'll need to take the following steps:
-
-* Don't fork or clone this repo! Instead, create a new, empty
-  directory on your machine and `git init` (or create an empty repo on
-  Github and clone it to your local machine)
-
-* Now you will have to add the fs-app-template as a remote and merge it into your own repository.
+Torch is a concise price and data-tracking website for the top 100 crypto assets by market capitalization. The site was developed in Javascript with Victory for data visualization, Node/Express, PostgreSQL, Sequelize, React, Redux, HTML, and CSS.
