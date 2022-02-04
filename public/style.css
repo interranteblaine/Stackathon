@@ -253,6 +253,7 @@ td {
 .chart-container {
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 
 .chart {
@@ -273,5 +274,14 @@ td {
 }
 
 .above-chart input {
+  color: rgb(163, 163, 163);
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+}
+
+.footer small {
   color: rgb(163, 163, 163);
 }

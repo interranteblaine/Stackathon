@@ -35,7 +35,11 @@ const Historical = () => {
   return (
     <div>
       {!data.length ? (
-        <div className="chart-container">Historical data is not available</div>
+        <div className="chart-container">
+          <div className="chart info-tile">
+            <p>Historical data for this asset is not available</p>
+          </div>
+        </div>
       ) : (
         <div className="chart-container">
           <div className="chart info-tile">
@@ -63,7 +67,7 @@ const Historical = () => {
               </p>
             </div>
             <VictoryChart
-              width={1200}
+              width={1000}
               height={500}
               scale={{ x: "time" }}
               padding={{ top: 5, bottom: 50, left: 50, right: 50 }}

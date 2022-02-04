@@ -46,8 +46,6 @@ const Navbar = () => {
         <h1>Torch</h1>
         <nav>
             <Link to="/home">Assets</Link>
-            <Link to="#">Analysis</Link>
-            <Link to="#">Sandbox</Link>
         </nav>
       </div>
     </div>

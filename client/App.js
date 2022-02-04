@@ -7,6 +7,9 @@ const App = () => {
     <div className='main'>
       <Navbar />
       <Routes />
+      <div className='footer'>
+        <p><small>Market data from CoinMarketCap API & Historical daily price data from Coinbase API</small></p>
+      </div>
     </div>
   )
 }
